@@ -1,0 +1,17 @@
+/*.tar.gz
+/tmp
+/dist
+/dist-extras
+/julia
+/usr
+/Make.user
+/julia-*
+/source-dist.tmp
+/source-dist.tmp1
+
+*.exe
+*.dll
+*.do
+*.o
+*.dylib
+*.dSYM
