@@ -1,3 +1,19 @@
+############################################################################################################
+# MODULE : Implements Least squares fitting algorithm for a given data
+# 
+# USAGE : Fitted_model, loss_value = least_square(Data, Model) 
+# 
+# INPUT : Data: M*(N+1) matrix 
+#				It contains the data on which the model is to be fitted
+#				For a given row, first N columns contain the features and last column 
+#				contains actual labels/expected output
+#		  Model: N*1 Array 
+#				 Randomly Initialised Model vector which would finally be updated with the fitted model
+#	
+# OUTPUT : Fitted_model: Model fitted on the data
+#		   loss_value: Value of the least squares loss function based on the final model
+#
+
 module julia_ls
 
 export least_square

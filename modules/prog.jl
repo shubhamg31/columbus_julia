@@ -34,7 +34,7 @@ to_add = setdiff(full,fs)
 
 println("dataset created")
 
-#A_drop = drop_feature(perceptron,A,fs)
+#A_drop = drop_feature(least_square,A,fs)
 x_admm = admm(A[:,fs],b)
 #A_drop2 = drop_multicore(A,fs)
 #A_add = add_feature(A,fs,to_add)

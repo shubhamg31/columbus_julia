@@ -1,3 +1,17 @@
+#####################################################################################################################
+# MODULE : Implements Alternative Direction Method of Multipliers for Model fitting using Non linear loss functions
+# 
+# USAGE : model = admm(A, b) 
+# 
+# INPUT : A: M*N matrix 
+#				It contains the data matrix on which the model is to be fitted.
+#				For a given row, each of the column value corresponds to a feature. 
+#		  b: M*1 Array 
+#				 This contains the actual labels/expected output for each of the data points
+#
+# OUTPUT : model: Model fitted on the data using the non-linear loss function(Log loss function)
+#
+
 module julia_admm
 export admm
 
@@ -31,24 +45,6 @@ function root(fp, lo, hi)
 	val = fzero(fp,lo,hi)
 	return val
 end
-
-#nexp = 1000
-#nfeat = 10
-#examples = Array(Cdouble, nexp, nfeat+1)
-#for row = 1:nexp
-#	for col = 1:nfeat
-#		examples[row, col] = rand()
-#	end
-#	if rand() > 0.8
-#		examples[row, nfeat+1] = -1
-#	else
-#		examples[row, nfeat+1] = 1
-#	end
-#end
-#model = Cdouble[0 for i = 1:nfeat]
-
-#A = examples[:,1:nfeat]
-#b = examples[:,end]
 
 function admm(A,b)
 	u = zeros(size(b))

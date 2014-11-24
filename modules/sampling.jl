@@ -1,10 +1,27 @@
+###############################################################################################
+# MODULE: Module for various manual feature selection/modification
+# FUNCTIONS - 
+# 1. CORESET SAMPLING - Function to perform importance-sampling method called coresets
+# USAGE : data_sampled = coreset(data)
+# INPUT: data - N*d matrix where 'N' is the number of data points and 'd' is the number of features 
+# OUTPUT: data_sampled - Sampled matrix with dimension M*d where 'M' is the number of sampled points 	
+#						 and 'd' is the number of the features. 'M' is dependent on the feature set.
+#
+# 2. NAIVE SAMPLING - Function for randomly sampling data points from the dataset
+# USAGE: data_sampled = naive(data,M)
+# INPUT: data - N*d matrix where 'N' is the number of data points and 'd' is the number of features
+#		 M - M is the number of data points to be sampled
+# OUTPUT: data_sampled - Sampled matrix with dimension M*d where 'M' is the number of sampled points 	
+#						 and 'd' is the number of the features.	
+#
+
 module sampling
 export naive,coreset
 
 import StatsBase
 
-function coreset(data, fs)
-	features = data[:,fs]
+function coreset(data)
+	features = data[:,end-1]
 	label = data[:,end]
 	
 	m = *(transpose(features),features)
@@ -22,8 +39,8 @@ function coreset(data, fs)
 	return data_sampled
 end
 
-function naive(data, n)
-	sampled = StatsBase.sample(1:size(data,1), n)
+function naive(data, M)
+	sampled = StatsBase.sample(1:size(data,1), M)
 	data_sampled = data[sampled,:]
 	return data_sampled
 end

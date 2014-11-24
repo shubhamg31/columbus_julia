@@ -1,3 +1,19 @@
+#############################################################################################################
+# MODULE : Implements Perceptron Classifier for Linear Classification of the given data
+# 
+# USAGE : Fitted_model, loss_value = perceptron(Data, Model) 
+# 
+# INPUT : Data: M*(N+1) matrix 
+#				It contains the data which is to be classified
+#				For a given row, first N columns contain the features and last column 
+#				contains actual labels
+#		  Model: N*1 Array 
+#				 Randomly Initialised Model vector which would finally be updated with the fitted model	
+#
+# OUTPUT : Fitted_model: Model fitted for classification of the data
+#		   loss_value: Value of the perceptron loss function based on the final model
+#
+
 module julia_perceptron
 
 export perceptron
@@ -5,35 +21,6 @@ export perceptron
 push!(LOAD_PATH, "/home/shubham/Documents/research/dw/julialib/")
 import DimmWitted
 DimmWitted.set_libpath("/home/shubham/Documents/research/dw/libdw_julia")
-
-######################################
-# The following piece of code creates a
-# synthetic data set:
-#    - Data type is Cdouble
-#    - Model type is Array{Cdouble}
-#
-
-#nexp = 100000
-#nfeat = 1024
-#learning_rate = 0.6
-#examples = Array(Cdouble, nexp, nfeat+2)
-#
-#for row = 1:nexp
-#	examples[row,nfeat+1] = 1
-#	if rand() > 0.5
-#		examples[row, nfeat+2] = 0
-#		for col = 1:nfeat
-#			examples[row, col] = -1.0*col/nfeat	
-#		end
-#	else
-#		examples[row, nfeat+1] = 1
-#		for col = 1:nfeat
-#			examples[row, col] = col*1.0/nfeat
-#			
-#		end
-#	end
-#end
-#model = Cdouble[0 for i = 1:(nfeat+1)]
 
 ######################################
 # Define the loss function and weight update

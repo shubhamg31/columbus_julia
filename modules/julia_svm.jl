@@ -1,3 +1,19 @@
+#############################################################################################################
+# MODULE : Implements SVM Classifier for Linear Classification of the given data
+# 
+# USAGE : Fitted_model, loss_value = svm(Data, Model) 
+# 
+# INPUT : Data: M*(N+1) Array
+#				It contains the data which is to be classified
+#				For a given row, first N columns contain the features and last column 
+#				contains actual labels
+#		  Model: N*1 Array 
+#				 Randomly Initialised Model vector which would finally be updated with the fitted model
+#
+# OUTPUT : Fitted_model: Model fitted for classification of the data
+#		   loss_value: Value of the hinge loss function based on the final model
+#
+
 module julia_svm
 export svm
 

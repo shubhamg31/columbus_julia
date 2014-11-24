@@ -1,3 +1,20 @@
+#############################################################################################################
+# MODULE : Implements Logistic Regression based Model fitting algorithm for a given data
+# 
+# USAGE : Fitted_model, loss_value = logit_reg(Data, Model) 
+# 
+# INPUT : Data: M*(N+1) matrix 
+#				It contains the data on which the model is to be fitted
+#				For a given row, first N columns contain the features and last column 
+#				contains actual labels/expected output
+#		  Model: N*1 Array 
+#				 Randomly Initialised Model vector which would finally be updated with the fitted model	
+#
+# OUTPUT : Fitted_model: Model fitted on the data
+#		   loss_value: Value of the log loss function based on the final model
+#
+
+
 module julia_lr
 
 export logit_reg
