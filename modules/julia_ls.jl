@@ -1,14 +1,12 @@
 ############################################################################################################
 # MODULE : Implements Least squares fitting algorithm for a given data
 # 
-# USAGE : Fitted_model, loss_value = least_square(Data, Model) 
+# USAGE : Fitted_model, loss_value = least_square(Data) 
 # 
 # INPUT : Data: M*(N+1) matrix 
 #				It contains the data on which the model is to be fitted
 #				For a given row, first N columns contain the features and last column 
 #				contains actual labels/expected output
-#		  Model: N*1 Array 
-#				 Randomly Initialised Model vector which would finally be updated with the fitted model
 #	
 # OUTPUT : Fitted_model: Model fitted on the data
 #		   loss_value: Value of the least squares loss function based on the final model
@@ -57,7 +55,8 @@ end
 # the type, they are infer'ed by the 
 # open() function, which is parametric.
 #
-function least_square(data, model)
+function least_square(data)
+	model = Cdouble[0 for i = 1:size(data,2)]
 	const nexp = size(data,1)
 	dw = DimmWitted.open(data, model, 
 	                DimmWitted.MR_SINGLETHREAD_DEBUG,    

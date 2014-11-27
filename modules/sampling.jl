@@ -21,9 +21,8 @@ export naive,coreset
 import StatsBase
 
 function coreset(data)
-	features = data[:,end-1]
+	features = data[:,1:end-1]
 	label = data[:,end]
-	
 	m = *(transpose(features),features)
 	inv_features = inv(m)
 	sensitivity1 = sum((*(features,inv_features) .* features), 1)

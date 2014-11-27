@@ -1,0 +1,13 @@
+Coreset Sampling: 
+Time Elapsed: 1.753343051
+
+Size after Sampling: (29600,150)
+
+Least Square with Coreset: 
+Time Elapsed: 0.594912268
+
+Logistic Regression with Coreset: 
+Time Elapsed: 0.313736442
+
+Logistic Regression Using ADMM with Coreset: 
+Time Elapsed: 8.284167285

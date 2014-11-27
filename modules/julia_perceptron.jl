@@ -1,14 +1,12 @@
 #############################################################################################################
 # MODULE : Implements Perceptron Classifier for Linear Classification of the given data
 # 
-# USAGE : Fitted_model, loss_value = perceptron(Data, Model) 
+# USAGE : Fitted_model, loss_value = perceptron(Data) 
 # 
 # INPUT : Data: M*(N+1) matrix 
 #				It contains the data which is to be classified
 #				For a given row, first N columns contain the features and last column 
 #				contains actual labels
-#		  Model: N*1 Array 
-#				 Randomly Initialised Model vector which would finally be updated with the fitted model	
 #
 # OUTPUT : Fitted_model: Model fitted for classification of the data
 #		   loss_value: Value of the perceptron loss function based on the final model
@@ -58,7 +56,8 @@ end
 # the type, they are infer'ed by the 
 # open() function, which is parametric.
 #
-function perceptron(data,model)
+function perceptron(data)
+	model = Cdouble[0 for i = 1:size(data,2)]
 	nexp = size(data,1)
 	dw = DimmWitted.open(data, model, 
 	                DimmWitted.MR_SINGLETHREAD_DEBUG,    

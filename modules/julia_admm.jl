@@ -1,13 +1,12 @@
 #####################################################################################################################
 # MODULE : Implements Alternative Direction Method of Multipliers for Model fitting using Non linear loss functions
 # 
-# USAGE : model = admm(A, b) 
+# USAGE : model = admm(Data) 
 # 
-# INPUT : A: M*N matrix 
-#				It contains the data matrix on which the model is to be fitted.
-#				For a given row, each of the column value corresponds to a feature. 
-#		  b: M*1 Array 
-#				 This contains the actual labels/expected output for each of the data points
+# INPUT : Data: M*(N+1) matrix 
+#				It contains the data on which the model is to be fitted
+#				For a given row, first N columns contain the features and last column 
+#				contains actual labels/expected output
 #
 # OUTPUT : model: Model fitted on the data using the non-linear loss function(Log loss function)
 #
@@ -46,7 +45,10 @@ function root(fp, lo, hi)
 	return val
 end
 
-function admm(A,b)
+function admm(data)
+	A = data[:,1:end-1]
+	b = data[:,end]
+	
 	u = zeros(size(b))
 	z = zeros(size(b))
 	x = Cdouble[0 for i = 1:size(A,2)]
@@ -69,7 +71,6 @@ function admm(A,b)
 		end
 		u = u + Ax - z
 	end
-	println(transpose(x))
 	return(transpose(x))
 end
 end

@@ -26,30 +26,29 @@ using julia_lr
 using julia_perceptron
 using julia_svm
 
-nexp = 100										
-nfeat = 10
+#nexp = 100										
+#nfeat = 10
 
-examples = Array(Cdouble, nexp, nfeat+1)
-for row = 1:nexp
-	for col = 1:nfeat
-		examples[row, col] = rand()
-	end
-	if rand() > 0.8
-		examples[row, nfeat+1] = 0
-	else
-		examples[row, nfeat+1] = 1
-	end
-end
+#examples = Array(Cdouble, nexp, nfeat+1)
+#for row = 1:nexp
+#	for col = 1:nfeat
+#		examples[row, col] = rand()
+#	end
+#	if rand() > 0.8
+#		examples[row, nfeat+1] = 0
+#	else
+#		examples[row, nfeat+1] = 1
+#	end
+#end
 
-fs = [1,2,4,5]
-full = [1:nfeat]
-to_add = setdiff(full,fs)
+#fs = [1,2,4,5]
+#full = [1:nfeat]
+#to_add = setdiff(full,fs)
 
-function add_feature(func,fs,to_add)
+function add_feature(func, A, fs,to_add)
 	min_loss = Inf
 	tasks = {A[:,union(fs,i)] for i in to_add}
-	model = {Cdouble[0 for j = 1:(length(fs)+1)] for i in to_add}
-	results = pmap(func, tasks, model)
+	results = pmap(func, tasks)
 	loss_value, idx = findmin([results[i][2] for i = 1:length(results)])
 	model = results[idx][1]
 	println(idx)
