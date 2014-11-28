@@ -21,8 +21,6 @@ export drop_feature
 
 using julia_ls
 using julia_lr
-using julia_perceptron
-using julia_svm
 
 #nexp = 100
 #nfeat = 10
@@ -47,11 +45,12 @@ using julia_svm
 #b = examples[:,end]
 
 function drop_feature(func,A,fs)
-	A = A[:,fs]
+	ncols = size(A,2)
+	A = A[:,union(fs,ncols)]
 	min_loss = Inf
 	loss_value = Array(Float32, length(fs))
 	idx = 0
-	for i = 1:length(fs):
+	for i = 1:length(fs)
 		data = A[:,[1:i-1,i+1:end]]
 		model, loss_value = func(data)
 		println(loss_value)
@@ -62,7 +61,7 @@ function drop_feature(func,A,fs)
 		end
 	end
 	println(idx)
-	return A[:,[1:idx-1,idx+1:end]]
+	return A[:,[1:idx-1,idx+1:size(fs,1)]]
 end
 
 end

@@ -39,16 +39,16 @@ using julia_ls
 
 function drop_feature_multicore(func, A, fs)
 	min_loss = Inf
-	A = A[:,fs]
+	ncols = size(A,2)
+	A = A[:,union(fs,ncols)]
 	tasks = {A[:,[1:i-1,i+1:size(A,2)]] for i = 1:length(fs)}
 	
 	results = pmap(func, tasks)
 	loss_value, idx = findmin([results[i][2] for i = 1:length(results)])
 	model = results[idx][1]
 
-	A_drop = A[:,[1:idx-1,idx+1:size(A,2)]]
-	println(idx)
+	A_drop = A[:,[1:idx-1,idx+1:size(fs,1)]]
+	println("Feature Dropped: ", fs[idx])
 	return A_drop
 end
 end
-

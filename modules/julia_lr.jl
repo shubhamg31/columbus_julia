@@ -64,7 +64,7 @@ function grad(row::Array{Cdouble,1}, model::Array{Cdouble,1})
 		d = d + row[i]*model[i]
 	end
 	d = exp(-d)
-		Z = 0.00001 * (-label + 1.0/(1.0+d))
+		Z = 0.001 * (-label + 1.0/(1.0+d))
   	for i = 1:nfeat
   		model[i] = model[i] - row[i] * Z
   	end
@@ -97,7 +97,7 @@ function logit_reg(data)
 	# Run 10 epoches.
 	#
 	loss_value = 1
-	for iepoch = 1:5
+	for iepoch = 1:10
 		rs = DimmWitted.exec(dw, handle_loss)
 		println("LOSS: ", rs/nexp)
 		loss_value = rs/nexp

@@ -1,5 +1,5 @@
 Perceptron Algorithm Without Materialization: 
-Time Elapsed: 1.765581821
+Time Elapsed: 2.34494212
 
 SVM Without Materialization: 
-Time Elapsed: 1.53934728
+Time Elapsed: 1.945658445

@@ -7,8 +7,15 @@ f = open("results_classification.txt","w")
 NCols=151
 NRows=100000
 d = rand(NRows, NCols)
-fs = [1:NCols-1]
+for row = 1:NRows
+	if d[row, NCols] <= 0.5
+		d[row, NCols] = 0
+	else
+		d[row, NCols] = 1
+	end
+end
 
+fs = [1:NCols]
 d = d[:,fs]
 
 write(f, "Perceptron Algorithm Without Materialization: \n")

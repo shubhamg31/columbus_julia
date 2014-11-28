@@ -23,8 +23,6 @@ using julia_ls
 using DataFrames
 using julia_ls
 using julia_lr
-using julia_perceptron
-using julia_svm
 
 #nexp = 100										
 #nfeat = 10
@@ -47,12 +45,13 @@ using julia_svm
 
 function add_feature(func, A, fs,to_add)
 	min_loss = Inf
-	tasks = {A[:,union(fs,i)] for i in to_add}
+	ncols = size(A,2)
+	tasks = {A[:,union(fs,i,ncols)] for i in to_add}
 	results = pmap(func, tasks)
 	loss_value, idx = findmin([results[i][2] for i = 1:length(results)])
 	model = results[idx][1]
-	println(idx)
-	return A[:,union(fs,idx)]
+	println("Feature Added", to_add[idx])
+	return A[:,union(fs,to_add[idx])]
 end
 
 end

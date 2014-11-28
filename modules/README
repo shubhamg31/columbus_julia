@@ -10,5 +10,3 @@ Files :
 8. stepadd_multicore.jl - Stepwise addition of features using multiple cores
 9. stepdrop_multicore.jl - Stepise deletion of features using multiple cores
 10.stepdrop.jl - Stepwise deletion of features
-
-11. prog.jl - Script for calling different modules and fucntions

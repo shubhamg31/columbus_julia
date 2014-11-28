@@ -34,7 +34,6 @@ function coreset(data)
 	else
 		data_sampled = data	
 	end
-	println(size(data_sampled,1))
 	return data_sampled
 end
 
