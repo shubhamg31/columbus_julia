@@ -1,4 +1,4 @@
-Files :
+MODULES -
 
 1. julia_ls - Module for least squares regression
 2. julia_lr - Module for logistic regression
@@ -10,3 +10,44 @@ Files :
 8. stepadd_multicore.jl - Stepwise addition of features using multiple cores
 9. stepdrop_multicore.jl - Stepise deletion of features using multiple cores
 10.stepdrop.jl - Stepwise deletion of features
+
+FUNCTIONS - 
+
+1. least_square
+Module : julia_ls
+
+2. logit_reg
+Module : julia_lr
+
+3. perceptron
+Module : julia_ perceptron
+
+4. svm
+Module : julia_svm
+
+5. admm
+Module : julia_admm
+
+6. coreset
+Module : sampling
+
+7. naive
+Module : sampling
+
+8. drop_feature
+Module : stepdrop
+
+9. drop_feature_multicore
+Module : stepdrop_multicore
+
+10. add_feature
+Module : stepadd_multicore
+
+11. join
+Module : transform
+
+12. select 
+Module : transform
+
+13. remove
+Module : transform
