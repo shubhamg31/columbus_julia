@@ -1,3 +1,7 @@
+FOLDERS - 
+1. tests - Contains various unit tests (running time of different functions)
+2. examples - example scripts for using the code base
+---------------------------------------------------------------------------------------------------------------
 MODULES -
 
 1. julia_ls - Module for least squares regression
@@ -10,9 +14,9 @@ MODULES -
 8. stepadd_multicore.jl - Stepwise addition of features using multiple cores
 9. stepdrop_multicore.jl - Stepise deletion of features using multiple cores
 10.stepdrop.jl - Stepwise deletion of features
+------------------------------------------------------------------------------------------------------------------
 
 FUNCTIONS - 
-
 1. least_square
 Module : julia_ls
 
