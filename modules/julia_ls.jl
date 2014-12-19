@@ -56,7 +56,7 @@ end
 # open() function, which is parametric.
 #
 function least_square(data)
-	model = Cdouble[0 for i = 1:size(data,2)]
+	model = Cdouble[0 for i = 1:size(data,2)-1]
 	const nexp = size(data,1)
 	dw = DimmWitted.open(data, model, 
 	                DimmWitted.MR_SINGLETHREAD_DEBUG,    
@@ -65,7 +65,7 @@ function least_square(data)
 
 	println("dimmWitted opened")
 	######################################
-	# Register functions.
+	# Register functions
 	#
 	handle_loss = DimmWitted.register_row(dw, loss)
 	handle_grad = DimmWitted.register_row(dw, grad)

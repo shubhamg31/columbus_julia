@@ -79,7 +79,7 @@ function open{DATATYPE, MODELTYPE}(examples::SparseMatrixCSC{DATATYPE,Int64}, mo
 
 	dw = DW(_dw, modelrepl, datarepl, acmethod, typeof(_shared_data))
 
-	println("[JULIA-DW] Created Sparse DimmWitted Object: ", dw._dw)
+#	println("[JULIA-DW] Created Sparse DimmWitted Object: ", dw._dw)
 
 	return dw
 end
@@ -115,7 +115,7 @@ function open{DATATYPE, MODELTYPE}(examples::Array{DATATYPE,2}, model::Array{MOD
 	
 	dw = DW(_dw, modelrepl, datarepl, acmethod, typeof(_shared_data))
 
-	println("[JULIA-DW] Created Dense DimmWitted Object: ", dw._dw)
+#	println("[JULIA-DW] Created Dense DimmWitted Object: ", dw._dw)
 
 	return dw
 end
@@ -165,7 +165,7 @@ function register_row2(_dw, func, supress=false)
 
 	handle = @eval ccall(($(string("DenseDimmWitted_Register_Row2")), $(_libpath)), Cuint, (Ptr{Void}, Ptr{Void}, Cint, Cint, Cint), $(_dw._dw), $(func_c), $(_dw.modelrepl), $(_dw.datarepl), $(_dw.accessmethod)) 
 
-	println("[JULIA-DW] Registered Row Function ", func, " Handle=", handle)
+#	println("[JULIA-DW] Registered Row Function ", func, " Handle=", handle)
 
 	return handle
 end
@@ -187,7 +187,7 @@ function register_row(_dw, func, supress=false)
 
 	handle = @eval ccall(($(string("DenseDimmWitted_Register_Row2")), $(_libpath)), Cuint, (Ptr{Void}, Ptr{Void}, Cint, Cint, Cint), $(_dw._dw), $(func_c), $(_dw.modelrepl), $(_dw.datarepl), $(_dw.accessmethod)) 
 
-	println("[JULIA-DW] Registered Row Function ", func, " Handle=", handle)
+#	println("[JULIA-DW] Registered Row Function ", func, " Handle=", handle)
 
 	return handle
 end
@@ -207,7 +207,7 @@ function register_c2r(_dw, func, supress=false)
 
 	handle = @eval ccall(($(string("DenseDimmWitted_Register_C2R2")), $(_libpath)), Cuint, (Ptr{Void}, Ptr{Void}, Cint, Cint, Cint), $(_dw._dw), $(func_c), $(_dw.modelrepl), $(_dw.datarepl), $(_dw.accessmethod)) 
 
-	println("[JULIA-DW] Registered Column-to-row Function ", func, " Handle=", handle)
+#	println("[JULIA-DW] Registered Column-to-row Function ", func, " Handle=", handle)
 
 	return handle
 end
@@ -227,7 +227,7 @@ function register_c2r2(_dw, func, supress=false)
 
 	handle = @eval ccall(($(string("DenseDimmWitted_Register_C2R2")), $(_libpath)), Cuint, (Ptr{Void}, Ptr{Void}, Cint, Cint, Cint), $(_dw._dw), $(func_c), $(_dw.modelrepl), $(_dw.datarepl), $(_dw.accessmethod)) 
 
-	println("[JULIA-DW] Registered Column-to-row Function ", func, " Handle=", handle)
+#	println("[JULIA-DW] Registered Column-to-row Function ", func, " Handle=", handle)
 
 	return handle
 end
@@ -248,7 +248,7 @@ function register_col(_dw, func, supress=false)
 
 	handle = @eval ccall(($(string("DenseDimmWitted_Register_Col2")), $(_libpath)), Cuint, (Ptr{Void}, Ptr{Void}, Cint, Cint, Cint), $(_dw._dw), $(func_c), $(_dw.modelrepl), $(_dw.datarepl), $(_dw.accessmethod)) 
 
-	println("[JULIA-DW] Registered Col Function ", func, " Handle=", handle)
+#	println("[JULIA-DW] Registered Col Function ", func, " Handle=", handle)
 
 	return handle
 end
@@ -268,7 +268,7 @@ function register_col(_dw, func, supress=false)
 
 	handle = @eval ccall(($(string("DenseDimmWitted_Register_Col2")), $(_libpath)), Cuint, (Ptr{Void}, Ptr{Void}, Cint, Cint, Cint), $(_dw._dw), $(func_c), $(_dw.modelrepl), $(_dw.datarepl), $(_dw.accessmethod)) 
 
-	println("[JULIA-DW] Registered Col Function ", func, " Handle=", handle)
+#	println("[JULIA-DW] Registered Col Function ", func, " Handle=", handle)
 
 	return handle
 end
@@ -289,7 +289,7 @@ function register_model_avg(_dw, handle, func, supress=false)
 
 	@eval ccall(($(string("DenseDimmWitted_Register_ModelAvg2")), $(_libpath)), Void, (Ptr{Void}, Cuint, Ptr{Void}, Cint, Cint, Cint), $(_dw._dw), $(handle), $(func_c), $(_dw.modelrepl), $(_dw.datarepl), $(_dw.accessmethod))
 
-	println("[JULIA-DW] Registered Avg Function ", func, " for Func Handle=", handle)
+#	println("[JULIA-DW] Registered Avg Function ", func, " for Func Handle=", handle)
 
 	return nothing
 

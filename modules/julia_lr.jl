@@ -78,7 +78,7 @@ end
 # open() function, which is parametric.
 #
 function logit_reg(data)
-	model = Cdouble[0 for i = 1:size(data,2)]	
+	model = Cdouble[0 for i = 1:size(data,2)-1]	
 	const nexp = size(data,1)
 	dw = DimmWitted.open(data, model, 
 	                DimmWitted.MR_SINGLETHREAD_DEBUG,    
